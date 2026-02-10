@@ -1,3 +1,0 @@
-var posts=["2025/03/25/BILIBILI简码/","2024/05/27/Cravatar头像无法访问/","2025/08/31/Meteor主题友链页面自研/","2025/12/11/MiniFlux升级NextFlux/","2025/11/08/MiniFlux安全升级/","2025/10/07/Miniflux-–-RSS-订阅/","2026/02/08/Twikoo私有化部署/","2025/05/31/WPcode报错处理/","2023/12/14/人机验证解决VAPTCHA/","2024/07/22/快速迁移网站/","2024/08/20/标签云/","2025/09/01/登录页面DIY/","2025/01/03/登录页面插件/","2023/05/08/网站提交搜索引擎/","2024/12/13/轻博客的粒子浪漫/"];function toRandomPost(){
-    pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
-  };
