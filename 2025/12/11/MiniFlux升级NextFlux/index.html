@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验 | Eucalyptus</title><meta name="keywords" content="技术分享,RSS"><meta name="author" content="Mr.蓝桉"><meta name="copyright" content="Mr.蓝桉"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"><meta name="application-name" content="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"><meta property="og:url" content="https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/index.html"><meta property="og:site_name" content="Eucalyptus"><meta property="og:description" content="前段时间我部署了Miniflux，这是一款功能强大的极简主义RSS订阅器，它支持多平台同步、文章过滤和离线阅读等实用功能，完全满足了我的信息聚合需求；不过它的界面设计确实过于朴素，采用了最基础的列表布局和单调的配色方案，在这个视觉至上的时代里，这种毫不修饰的极简风格可能会让许多用户在初次接触时就失去"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/cover.webp"><meta property="article:author" content="Mr.蓝桉"><meta property="article:tag" content="Hexo,博客"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/cover.webp"><meta name="description" content="前段时间我部署了Miniflux，这是一款功能强大的极简主义RSS订阅器，它支持多平台同步、文章过滤和离线阅读等实用功能，完全满足了我的信息聚合需求；不过它的界面设计确实过于朴素，采用了最基础的列表布局和单调的配色方案，在这个视觉至上的时代里，这种毫不修饰的极简风格可能会让许多用户在初次接触时就失去"><link rel="shortcut icon" href="https://lanantrees.mingliang.net.cn/landing/touxiang.ico"><link rel="canonical" href="https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/"><link rel="preconnect" href="//cdn.cbd.int"><link rel="preconnect" href="//hm.baidu.com"><meta name="google-site-verification" content="xxx"><meta name="baidu-site-verification" content="codeva-REXmDONbr1"><meta name="msvalidate.01" content="xxx"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lanantrees.mingliang.net.cn/hexo/cdn/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lanantrees.mingliang.net.cn/hexo/cdn/css/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?40608a20da192f61f112c494d4f0a518";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"与数百名博主无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AI 摘要","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":100,"key":"S-PPHY31GU5VG5R16D","Referer":"https://hexo.mingliang.net.cn/"},
+  diytitle: {"enable":true,"leaveTitle":"不要走！再看看嘛！","backTitle":"欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: 'https://twikoo.mingliang.net.cn/',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: {"apiurl":null},
+  navMusic: false,
+  mainTone: {"mode":"api","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: {"skills":["🏃 脚踏实地行动派","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Mr.蓝桉","link":"链接: ","source":"来源: Eucalyptus","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'mediumZoom',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.2.0/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Eucalyptus',
+  title: '从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验',
+  postAI: 'true',
+  pageFillDescription: '前段时间我部署了这是一款功能强大的极简主义订阅器它支持多平台同步文章过滤和离线阅读等实用功能完全满足了我的信息聚合需求不过它的界面设计确实过于朴素采用了最基础的列表布局和单调的配色方案在这个视觉至上的时代里这种毫不修饰的极简风格可能会让许多用户在初次接触时就失去耐心随手划走转而选择那些界面更炫目交互更花哨的阅读应用因此为了弥补在视觉和交互体验上的不足我这次专门挑选了一款高颜值的第三方客户端它不仅继承了强大的订阅和内容聚合功能更通过现代化的界面设计流畅的动画效果和直观的操作逻辑大幅提升了用户的使用愉悦感例如支持暗黑模式与自定义主题卡片式布局让信息浏览更加清晰高效同时保留了原有的离线阅读与全文抓取等核心能力真正实现了功能与美感的平衡是一个基于现代化技术栈精心打造的阅读器客户端它专门为开源的后端服务设计完美融合了便捷性和功能性该客户端采用前沿的框架进行用户界面开发并结合这一高效构建工具不仅确保了极速的热重载和流畅的开发体验还优化了生产环境的打包性能为用户提供轻量响应迅速且高度可定制的阅读界面无论是订阅源的智能管理文章的分类筛选还是跨设备的同步阅读都致力于提升信息获取的效率和舒适度让用户能够专注于内容本身而无需为技术细节分心与类似同样采用轻量级的容器化部署方式能够通过或等工具快速搭建和运行极大简化了安装与维护流程这种部署模式不仅确保了环境的一致性还支持灵活扩展与版本管理特别适合个人或小团队在云服务器本地主机乃至树莓派等设备上高效部署同时保持了低资源占用和高稳定性的特点由于之前部署了下面就直接部署了当然再结尾也会附上的完整文件使用下述命令直接拉起的容器这里需要注意下容器的端口拉起容器后直接通过宿主机的地址加上映射的端口如在浏览器中访问即可若页面加载失败通常是由于端口映射错误导致的此时需要检查容器日志确认实际监听的端口号既可以通过命令行方式查看如执行容器命令获取详细日志也可以在宝塔面板的容器管理界面中直观地查看运行日志此外还需确认服务器防火墙是否放行了该端口这些都是导致访问失败的常见原因到这里基本上就可以看到的登录界面了我们可以看到这里除了用户名和密码外还有个服务地址这个服务地址就是的访问地址但是有几点需要注意如果你浏览器访问的地址使用的是那么服务地址这里就需要使用如果你浏览器访问的地址使用的域名那么服务地址这里必须使用域名下面我们来详细分析使用地址访问时出现错误的问题当按照本文的部署方式部署和后即使使用同一地址访问也会遇到跨域问题这是因为浏览器严格执行同源策略会对比前端页面来源和请求地址的协议域名和端口是否完全一致具体来说假设你通过访问前端界面而该前端尝试向的后端发起请求时虽然地址相同但由于端口号不同浏览器会判定为跨域请求此时浏览器会先发送一个预检请求来检查服务器是否允许跨域访问如果后端没有正确配置头部信息特别是缺少关键的响应头或者该头部的值不包含前端来源地址浏览器就会直接拦截后续的实际请求导致前端控制台报出错误要解决这个问题最直接的方法是在启动容器时添加两个必要的环境变量这些配置会让正确处理跨域请求并返回适当的头部修改后需要重启容器使配置生效这里我建议直接使用宝塔面板的可视化操作界面进行操作这样不仅能显著提高操作容错率还能避免因手动输入命令导致的潜在错误关于配置文件我们可以直接复用之前部署时使用的模板文件只需在数据库配置部分额外添加这两个关键环境变量即可完成这些修改后直接保存配置文件即可生效此时我们再次通过地址访问服务并进行登录操作整个过程就会变得非常顺畅不会再出现之前遇到的连接或认证问题这种方案既保留了原有配置的稳定性又通过最小改动实现了新功能的支持填写你的实际和最后我们重点讲解使用域名访问和登录时需要注意的技术细节特别是关于协议和格式规范的问题当使用协议访问服务时必须确保后端服务地址同样采用协议否则浏览器会因混合内容安全策略而阻止请求这里特别要强调的是尾斜杠的处理问题如果你在服务地址栏输入的是类似这样带有尾斜杠的地址而前端代码在拼接路径时又没有正确处理这个斜杠就会产生这样的双斜杠路径这种格式错误虽然看起来很小但会导致严重的后果大多数现代服务器如会将其视为无效路径返回错误而浏览器端的则会抛出的通用错误给调试带来困难这个问题在单页应用开发中尤为常见正确的做法应该是在配置文件中统一规范基础格式或者在代码中加入路径标准化处理逻辑确保请求的始终保持正确的单斜杠格式如果你之前没有部署过这个轻量级阅读器的话使用进行一体化安装是最便捷的方式首先你需要创建一个名为的配置文件将以下内容完整复制进去其中包括了服务及其必需的数据库配置确保网络设置和端口映射通常默认使用端口正确无误后在当前目录下执行命令即可启动容器编排系统会自动拉取最新镜像并完成所有依赖服务的部署整个过程无需手动干预非常适合快速搭建个人阅读服务这种联合部署的方式之前确实没有尝试过主要参考了和的混合云架构设计思路并结合了云计算架构设计模式一书中提到的服务网格集成方案如果有任何配置问题或性能优化建议欢迎各位技术同行在评论区留言讨论另外部署的测试环境已经稳定运行两周访问地址是该平台集成了实时数据流处理和可视化分析功能各位朋友如果需要测试体验的话可以留言说明具体会根据使用场景为大家提供免费的测试账号',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2026-02-10 22:30:09',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 8 || hour >= 22
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://lanantrees.mingliang.net.cn/landing/touxiang.ico"><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"><script async="async" src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" href="https://hexo.mingliang.net.cn/" title="主页"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/landing/touxiang.ico" alt="主页"><span class="back-menu-item-text">主页</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Eucalyptus</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Cravatar/" style="font-size: 1.05rem;">Cravatar<sup>1</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>1</sup></a><a href="/tags/Meteor/" style="font-size: 1.05rem;">Meteor<sup>1</sup></a><a href="/tags/RSS/" style="font-size: 1.05rem;">RSS<sup>3</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Twikoo/" style="font-size: 1.05rem;">Twikoo<sup>1</sup></a><a href="/tags/VAPTCHA/" style="font-size: 1.05rem;">VAPTCHA<sup>1</sup></a><a href="/tags/Wordpress/" style="font-size: 1.05rem;">Wordpress<sup>9</sup></a><a href="/tags/%E5%AE%9D%E5%A1%94/" style="font-size: 1.05rem;">宝塔<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">技术分享<sup>15</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 1.05rem;">插件<sup>2</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/" style="font-size: 1.05rem;">标签云<sup>1</sup></a><a href="/tags/%E7%AE%80%E7%A0%81/" style="font-size: 1.05rem;">简码<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE/" style="font-size: 1.05rem;">网站地图<sup>1</sup></a></div></div><hr></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/02/"><span class="card-archive-list-date">二月 2026</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">十二月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">十一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">九月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">五月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">三月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/RSS/" itemprop="url">RSS</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>技术分享</span></a><a class="article-meta__tags" href="/tags/RSS/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>RSS</span></a></span></div></div><h1 class="post-title" itemprop="name headline">从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-12-11T03:51:56.000Z" title="发表于 2025-12-11 11:51:56">2025-12-11</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2026-02-10T14:30:09.468Z" title="更新于 2026-02-10 22:30:09">2026-02-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">2.5k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为西安"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>西安</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/cover.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div class="post-ai-description"><div class="ai-title"><i class="anzhiyufont anzhiyu-icon-bilibili"></i><div class="ai-title-text">AI-摘要</div><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i><i class="anzhiyufont anzhiyu-icon-circle-dot" title="朗读摘要"></i><div id="ai-tag">Tianli GPT</div></div><div class="ai-explanation">AI初始化中...</div><div class="ai-btn-box"><div class="ai-btn-item">介绍自己 🙈</div><div class="ai-btn-item">生成本文简介 👋</div><div class="ai-btn-item">推荐相关文章 📖</div><div class="ai-btn-item">前往主页 🏠</div><div class="ai-btn-item" id="go-tianli-blog">前往爱发电购买</div></div><script data-pjax="" src="/js/anzhiyu/ai_abstract.js"></script></div><article class="post-content" id="article-container" itemscope="" itemtype="https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/"><header><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url">技术分享</a><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/RSS/" itemprop="url">RSS</a><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" tabindex="-1" itemprop="url">技术分享</a><a href="/tags/RSS/" tabindex="-1" itemprop="url">RSS</a><h1 id="CrawlerTitle" itemprop="name headline">从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验</h1><span itemprop="author" itemscope="" itemtype="http://schema.org/Person">Mr.蓝桉</span><time itemprop="dateCreated datePublished" datetime="2025-12-11T03:51:56.000Z" title="发表于 2025-12-11 11:51:56">2025-12-11</time><time itemprop="dateCreated datePublished" datetime="2026-02-10T14:30:09.468Z" title="更新于 2026-02-10 22:30:09">2026-02-10</time></header><div id="postchat_postcontent"><p>前段时间我部署了Miniflux，这是一款功能强大的极简主义RSS订阅器，它支持多平台同步、文章过滤和离线阅读等实用功能，完全满足了我的信息聚合需求；不过它的界面设计确实过于朴素，采用了最基础的列表布局和单调的配色方案，在这个视觉至上的时代里，这种毫不修饰的极简风格可能会让许多用户在初次接触时就失去耐心，随手划走转而选择那些界面更炫目、交互更花哨的阅读应用。</p>
+<p>因此，为了弥补 Miniflux 在视觉和交互体验上的不足，我这次专门挑选了一款高颜值的第三方客户端 Nextflux。它不仅继承了 Miniflux 强大的 RSS 订阅和内容聚合功能，更通过现代化的界面设计、流畅的动画效果和直观的操作逻辑，大幅提升了用户的使用愉悦感。例如，Nextflux 支持暗黑模式与自定义主题，卡片式布局让信息浏览更加清晰高效，同时保留了 Miniflux 原有的离线阅读与全文抓取等核心能力，真正实现了功能与美感的平衡。</p>
+<p>Nextflux 是一个基于现代化技术栈精心打造的 RSS 阅读器客户端，它专门为开源的Miniflux后端服务设计，完美融合了便捷性和功能性。该客户端采用前沿的React框架进行用户界面开发，并结合Vite这一高效构建工具，不仅确保了极速的热重载和流畅的开发体验，还优化了生产环境的打包性能，为用户提供轻量、响应迅速且高度可定制的阅读界面。无论是订阅源的智能管理、文章的分类筛选，还是跨设备的同步阅读，Nextflux都致力于提升信息获取的效率和舒适度，让用户能够专注于内容本身，而无需为技术细节分心。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/1.png"></p>
+<p>Nextflux与Miniflux类似，同样采用轻量级的容器化部署方式，能够通过Docker或Podman等工具快速搭建和运行，极大简化了安装与维护流程；这种部署模式不仅确保了环境的一致性，还支持灵活扩展与版本管理，特别适合个人或小团队在云服务器、本地主机乃至树莓派等设备上高效部署，同时保持了低资源占用和高稳定性的特点。</p>
+<p>由于之前部署了Miniflux下面就直接部署Nextflux了，当然再结尾也会附上Miniflux+Nextflux+DB的完整yml文件</p>
+<p>使用下述命令直接拉起nextflux的容器</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd  --restart unless-stopped  --name nextflux  -p 8121:3000    electh/nextflux:latest</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里需要注意下Nextflux容器的端口</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/2.png"></p>
+<p>拉起容器后，直接通过宿主机的IP地址加上映射的8121端口（如<code>http://192.168.1.100:8121</code>）在浏览器中访问即可；若页面加载失败，通常是由于端口映射错误导致的，此时需要检查容器日志确认实际监听的端口号，既可以通过命令行方式查看（如执行<code>docker logs 容器ID</code>命令获取详细日志），也可以在宝塔面板的”容器管理”界面中直观地查看运行日志，此外还需确认服务器防火墙是否放行了该端口，这些都是导致访问失败的常见原因。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/3.png"></p>
+<p>到这里基本上就可以看到Nextflux的登录界面了，我们可以看到这里除了用户名和密码外，还有个服务地址，这个服务地址就是Miniflux的访问地址，但是有几点需要注意</p>
+<ul>
+<li>如果你浏览器访问Nextflux的地址使用的是ip，那么服务地址这里就需要使用 <code>http://ip:port</code>，</li>
+<li>如果你浏览器访问Nextflux的地址使用的域名，那么服务地址这里必须使用 <code>https://域名</code></li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/4.png"></p>
+<p>下面，我们来详细分析使用IP地址访问时出现”Failed to fetch”错误的问题：当按照本文的部署方式部署Nextflux和Miniflux后，即使使用同一IP地址访问也会遇到跨域问题，这是因为浏览器严格执行同源策略，会对比前端页面来源和API请求地址的协议、域名和端口是否完全一致。具体来说，假设你通过<code>http://140.143.94.243:8121</code>访问Nextflux前端界面，而该前端尝试向<code>http://140.143.94.243:80</code>的Miniflux后端发起API请求时，虽然IP地址相同，但由于端口号不同（8121 vs 80），浏览器会判定为跨域请求，此时浏览器会先发送一个OPTIONS预检请求来检查服务器是否允许跨域访问；如果Miniflux后端没有正确配置CORS头部信息，特别是缺少关键的Access-Control-Allow-Origin响应头，或者该头部的值不包含前端来源地址，浏览器就会直接拦截后续的实际请求，导致前端控制台报出”Failed to fetch”错误。要解决这个问题，最直接的方法是在启动Miniflux容器时添加两个必要的环境变量，这些配置会让Miniflux正确处理跨域请求并返回适当的CORS头部，修改后需要重启Miniflux容器使配置生效。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">  - CORS_ORIGINS=http://140.143.94.243:8121</span><br><span class="line">  - CORS_ALLOW_HEADERS=*</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里我建议直接使用宝塔面板的可视化操作界面进行操作，这样不仅能显著提高操作容错率，还能避免因手动输入命令导致的潜在错误；关于yml配置文件，我们可以直接复用之前部署Miniflux时使用的模板文件，只需在数据库配置部分额外添加这两个关键环境变量即可，完成这些修改后，直接保存配置文件即可生效，此时我们再次通过IP地址访问服务并进行登录操作，整个过程就会变得非常顺畅，不会再出现之前遇到的连接或认证问题，这种方案既保留了原有配置的稳定性，又通过最小改动实现了新功能的支持。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/5.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/6.png"></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">services:</span><br><span class="line">  miniflux:</span><br><span class="line">    image: miniflux/miniflux:latest</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"8383:8080"</span></span><br><span class="line">    depends_on:</span><br><span class="line">      db:</span><br><span class="line">        condition: service_healthy</span><br><span class="line">    environment:</span><br><span class="line">      - DATABASE_URL=postgres://miniflux:admin@123@db/miniflux?sslmode=<span class="built_in">disable</span></span><br><span class="line">      - RUN_MIGRATIONS=1</span><br><span class="line">      - CREATE_ADMIN=1</span><br><span class="line">      - ADMIN_USERNAME=admin</span><br><span class="line">      - ADMIN_PASSWORD=admin@123</span><br><span class="line">	  - CORS_ORIGINS=http://140.143.94.243:8121   <span class="comment">#填写你的实际ip和port</span></span><br><span class="line">      - CORS_ALLOW_HEADERS=*</span><br><span class="line">    healthcheck:</span><br><span class="line">      <span class="built_in">test</span>: [<span class="string">"CMD"</span>, <span class="string">"/usr/bin/miniflux"</span>, <span class="string">"-healthcheck"</span>, <span class="string">"auto"</span>]</span><br><span class="line"></span><br><span class="line">  db:</span><br><span class="line">    image: postgres:17-alpine</span><br><span class="line">    environment:</span><br><span class="line">      - POSTGRES_USER=miniflux</span><br><span class="line">      - POSTGRES_PASSWORD=admin@123</span><br><span class="line">      - POSTGRES_DB=miniflux</span><br><span class="line">    volumes:</span><br><span class="line">      - miniflux-db:/var/lib/postgresql/data</span><br><span class="line">    healthcheck:</span><br><span class="line">      <span class="built_in">test</span>: [<span class="string">"CMD"</span>, <span class="string">"pg_isready"</span>, <span class="string">"-U"</span>, <span class="string">"miniflux"</span>]</span><br><span class="line">      interval: 10s</span><br><span class="line">      start_period: 30s</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  miniflux-db:</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后，我们重点讲解使用域名访问和登录时需要注意的技术细节，特别是关于HTTPS协议和URL格式规范的问题。当使用HTTPS协议访问Miniflux服务时，必须确保后端服务地址同样采用HTTPS协议，否则浏览器会因混合内容安全策略而阻止请求。这里特别要强调的是URL尾斜杠的处理问题：如果你在服务地址栏输入的是类似”<code>https://miniflux.mingliang.net.cn/</code>这样带有尾斜杠的地址，而前端JavaScript代码在拼接API路径时又没有正确处理这个斜杠，就会产生<code>https://miniflux.mingliang.net.cn**//**api/me</code>这样的双斜杠路径。这种URL格式错误虽然看起来很小，但会导致严重的后果：大多数现代Web服务器（如Nginx、Apache）会将其视为无效路径，返回404 Not Found错误；而浏览器端的fetch API则会抛出”Failed to fetch”的通用错误，给调试带来困难。这个问题在单页应用(SPA)开发中尤为常见，正确的做法应该是在配置文件中统一规范基础URL格式，或者在JavaScript代码中加入路径标准化处理逻辑，确保API请求的URL始终保持正确的单斜杠格式。</p>
+<p>如果你之前没有部署过Miniflux这个轻量级RSS阅读器的话，使用docker-compose进行一体化安装是最便捷的方式，首先你需要创建一个名为docker-compose.yml的配置文件，将以下内容完整复制进去，其中包括了Miniflux服务及其必需的PostgreSQL数据库配置，确保网络设置和端口映射（通常Miniflux默认使用8080端口）正确无误后，在当前目录下执行docker-compose up -d命令即可启动容器编排，系统会自动拉取最新镜像并完成所有依赖服务的部署，整个过程无需手动干预，非常适合快速搭建个人阅读服务。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">'3'</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  miniflux:</span><br><span class="line">    image: miniflux/miniflux:latest</span><br><span class="line">    container_name: miniflux-server</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"8120:8080"</span></span><br><span class="line">    depends_on:</span><br><span class="line">      db:</span><br><span class="line">        condition: service_healthy</span><br><span class="line">    environment:</span><br><span class="line">      - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=<span class="built_in">disable</span></span><br><span class="line">      - RUN_MIGRATIONS=1</span><br><span class="line">      - CREATE_ADMIN=1</span><br><span class="line">      - ADMIN_USERNAME=admin</span><br><span class="line">      - ADMIN_PASSWORD=test123</span><br><span class="line">  </span><br><span class="line">  db:</span><br><span class="line">    image: postgres:17-alpine</span><br><span class="line">    container_name: miniflux-db</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    environment:</span><br><span class="line">      - POSTGRES_USER=miniflux</span><br><span class="line">      - POSTGRES_PASSWORD=secret</span><br><span class="line">      - POSTGRES_DB=miniflux</span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/var/lib/postgresql/data</span><br><span class="line">    healthcheck:</span><br><span class="line">      <span class="built_in">test</span>: [<span class="string">"CMD"</span>, <span class="string">"pg_isready"</span>, <span class="string">"-U"</span>, <span class="string">"miniflux"</span>]</span><br><span class="line">      interval: 10s</span><br><span class="line">      start_period: 30s</span><br><span class="line"></span><br><span class="line">  nextflux:</span><br><span class="line">    image: electh/nextflux:latest</span><br><span class="line">    container_name: miniflux-nextflux</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">"8121:80"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这种联合部署的方式Eucalyptus之前确实没有尝试过，主要参考了AWS和Azure的混合云架构设计思路，并结合了《云计算架构设计模式》一书中提到的服务网格集成方案，如果有任何配置问题或性能优化建议，欢迎各位技术同行在评论区留言讨论。另外Eucalyptus部署的Nextflux测试环境已经稳定运行两周，访问地址是<a target="_blank" rel="noopener" href="https://blog.mingliang.net.cn/go/?url=https://nextflux.mingliang.net.cn">https://nextflux.mingliang.net.cn</a>，该平台集成了实时数据流处理和可视化分析功能，各位朋友如果需要测试体验的话可以留言说明具体，Eucalyptus会根据使用场景为大家提供免费的测试账号。</p>
+</div></article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/img/touxiang.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/img/touxiang.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Mr.蓝桉</div><div class="post-copyright__author_desc">建站心路の生活拾光</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/')">从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验&amp;url=https://hexo.mingliang.net.cn/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/&amp;pic=https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/cover.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hexo.mingliang.net.cn" target="_blank">Eucalyptus</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>技术分享<span class="tagsPageCount">15</span></a><a class="post-meta__box__tags" href="/tags/RSS/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>RSS<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/cover.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lanantrees.mingliang.net.cn/hexo/cdn/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/11/08/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MiniFlux安全升级</div></div></a></div><div class="next-post pull-right"><a href="/2026/02/08/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/cover.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Twikoo私有化部署</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/11/08/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/" title="MiniFlux安全升级"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-11-08</div><div class="title">MiniFlux安全升级</div></div></a></div><div><a href="/2025/10/07/Miniflux-%E2%80%93-RSS-%E8%AE%A2%E9%98%85/" title="Miniflux – RSS 订阅"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/MiniFlux%20Rss/cover.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-10-07</div><div class="title">Miniflux – RSS 订阅</div></div></a></div><div><a href="/2025/03/25/BILIBILI%E7%AE%80%E7%A0%81/" title="WordPress通过简码插入bilibili视频"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/bilibili%E7%AE%80%E7%A0%81/16.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-03-25</div><div class="title">WordPress通过简码插入bilibili视频</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/emoji/5fce15bc791451607341500106.png" alt="status"></div></div><div class="author-info__description">路漫漫其修远兮,吾将上下而求索</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Mr.蓝桉</h1><div class="author-info__desc">建站心路の生活拾光</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/lanantrees" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/3493270162245951" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/08/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/" title="Twikoo私有化部署"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Twikoo私有化部署"></a><div class="content"><a class="title" href="/2026/02/08/Twikoo%E7%A7%81%E6%9C%89%E5%8C%96%E9%83%A8%E7%BD%B2/" title="Twikoo私有化部署">Twikoo私有化部署</a><time datetime="2026-02-08T10:25:41.000Z" title="发表于 2026-02-08 18:25:41">2026-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/" title="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/Nextflux/cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验"></a><div class="content"><a class="title" href="/2025/12/11/MiniFlux%E5%8D%87%E7%BA%A7NextFlux/" title="从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验">从Miniflux 到 NextFlux：一步升级，拥抱现代化阅读体验</a><time datetime="2025-12-11T03:51:56.000Z" title="发表于 2025-12-11 11:51:56">2025-12-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/08/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/" title="MiniFlux安全升级"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MiniFlux安全升级"></a><div class="content"><a class="title" href="/2025/11/08/MiniFlux%E5%AE%89%E5%85%A8%E5%8D%87%E7%BA%A7/" title="MiniFlux安全升级">MiniFlux安全升级</a><time datetime="2025-11-08T08:39:45.000Z" title="发表于 2025-11-08 16:39:45">2025-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/07/Miniflux-%E2%80%93-RSS-%E8%AE%A2%E9%98%85/" title="Miniflux – RSS 订阅"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/MiniFlux%20Rss/cover.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Miniflux – RSS 订阅"></a><div class="content"><a class="title" href="/2025/10/07/Miniflux-%E2%80%93-RSS-%E8%AE%A2%E9%98%85/" title="Miniflux – RSS 订阅">Miniflux – RSS 订阅</a><time datetime="2025-10-07T12:12:24.000Z" title="发表于 2025-10-07 20:12:24">2025-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/09/01/%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2DIY/" title="Wordpress登录页面DIY"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/hexo/%E6%96%87%E7%AB%A0/%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2DIY/18.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Wordpress登录页面DIY"></a><div class="content"><a class="title" href="/2025/09/01/%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2DIY/" title="Wordpress登录页面DIY">Wordpress登录页面DIY</a><time datetime="2025-09-01T12:37:45.000Z" title="发表于 2025-09-01 20:37:45">2025-09-01</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">©2022 - 2026 By <a class="footer-bar-link" href="/" title="Mr.蓝桉" target="_blank">Mr.蓝桉</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/" title="陕ICP备2023007880号-2">陕ICP备2023007880号-2</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://beian.mps.gov.cn/#/query/webSearch" title="陕公网安备61080002000234号">陕公网安备61080002000234号</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">17</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" href="https://hexo.mingliang.net.cn/" title="主页"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://lanantrees.mingliang.net.cn/landing/touxiang.ico" alt="主页"><span class="back-menu-item-text">主页</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 归档</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Cravatar/" style="font-size: 0.88rem;">Cravatar<sup>1</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem; font-weight: 500; color: var(--anzhiyu-lighttext)">Hexo<sup>1</sup></a><a href="/tags/Meteor/" style="font-size: 0.88rem;">Meteor<sup>1</sup></a><a href="/tags/RSS/" style="font-size: 0.88rem;">RSS<sup>3</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Twikoo/" style="font-size: 0.88rem;">Twikoo<sup>1</sup></a><a href="/tags/VAPTCHA/" style="font-size: 0.88rem;">VAPTCHA<sup>1</sup></a><a href="/tags/Wordpress/" style="font-size: 0.88rem;">Wordpress<sup>9</sup></a><a href="/tags/%E5%AE%9D%E5%A1%94/" style="font-size: 0.88rem;">宝塔<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" style="font-size: 0.88rem;">技术分享<sup>15</sup></a><a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 0.88rem;">插件<sup>2</sup></a><a href="/tags/%E6%A0%87%E7%AD%BE%E4%BA%91/" style="font-size: 0.88rem;">标签云<sup>1</sup></a><a href="/tags/%E7%AE%80%E7%A0%81/" style="font-size: 0.88rem;">简码<sup>1</sup></a><a href="/tags/%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE/" style="font-size: 0.88rem;">网站地图<sup>1</sup></a></div></div><hr></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/tw_cn.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/medium-zoom.min.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/instantpage.js" type="module"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/lazyload.iife.min.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.cbd.int/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async="" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2022 By 安知鱼 V1.7.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Mr.蓝桉 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async="" src="/anzhiyu/random.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.mingliang.net.cn/',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://lanantrees.mingliang.net.cn/hexo/cdn/js/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.mingliang.net.cn/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.mingliang.net.cn/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://lanantrees.mingliang.net.cn/hexo/cdn/js/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async="" data-pjax="" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async="" data-pjax="" src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/waterfall.js"></script><script src="https://cdn.cbd.int/qrcodejs@1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script src="https://lanantrees.mingliang.net.cn/%E7%89%B9%E6%95%88/star-trail.js"></script><link rel="stylesheet" href="https://lanantrees.mingliang.net.cn/hexo/cdn/css/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/APlayer.min.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/Meting.min.js"></script><script src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/bangumis/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async="" data-pjax="" src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://lanantrees.mingliang.net.cn/hexo/cdn/js/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
